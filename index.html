@@ -22,8 +22,8 @@
         
         /* شاشة التسجيل والدخول */
         .auth-container {
-            max-width: 450px; margin: 40px auto; background: var(--card);
-            padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 450px; margin: 30px auto; background: var(--card);
+            padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
         }
         .auth-container h1 { color: var(--primary); font-size: 26px; margin-bottom: 5px; }
@@ -37,9 +37,9 @@
         .form-group input:focus, .form-group select:focus { border-color: var(--secondary); }
         .photo-upload {
             border: 2px dashed var(--secondary); padding: 15px; border-radius: 12px;
-            text-align: center; cursor: pointer; background: #eff6ff;
+            text-align: center; cursor: pointer; background: #eff6ff; display: block;
         }
-        .photo-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 10px auto; display: none; border: 3px solid var(--primary); }
+        .photo-preview { width: 85px; height: 85px; border-radius: 50%; object-fit: cover; margin: 10px auto 0; display: none; border: 3px solid var(--primary); }
         .btn {
             width: 100%; padding: 14px; background: var(--primary); color: white;
             border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
@@ -151,11 +151,11 @@
             </div>
             <div class="form-group">
                 <label>الصورة الشخصية (إجباري للدخول):</label>
-                <div class="photo-upload" onclick="document.getElementById('regPhoto').click()">
-                    <span>📸 اضغط هنا لاختيار صورتك الشخصية</span>
+                <label for="regPhoto" class="photo-upload">
+                    <span id="photoLabelText">📸 اضغط هنا لاختيار صورتك الشخصية</span>
                     <input type="file" id="regPhoto" accept="image/*" style="display:none" onchange="previewImage(event)">
                     <img id="photoPreview" class="photo-preview">
-                </div>
+                </label>
             </div>
             <button type="submit" class="btn">إنشاء الحساب والدخول للمنصة</button>
             <div class="switch-auth" onclick="toggleAuthMode()">لديك حساب بالفعل؟ تسجيل الدخول</div>
@@ -173,4 +173,3 @@
             </div>
             <button type="submit" class="btn">دخول</button>
             <div class="switch-auth" onclick="toggleAuthMode()">طالب جديد؟ إنشاء حساب الآن</div>
-        </form>
