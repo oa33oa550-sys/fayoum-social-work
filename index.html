@@ -125,25 +125,25 @@
         <h1>أخصائي فرقة أولى 🎓</h1>
         <p>الموقع الخاص بطلاب كلية الخدمة الاجتماعية - جامعة الفيوم</p>
 
-        <!-- نموذج إنشاء حساب جديد -->
-        <form id="registerForm">
+        <!-- قسم إنشاء حساب جديد -->
+        <div id="registerBox">
             <div class="form-group">
                 <label>الاسم بالكامل (ثلاثي أو رباعي):</label>
-                <input type="text" id="regName" required placeholder="مثال: عمر أحمد محمد">
+                <input type="text" id="regName" placeholder="مثال: عمر أحمد محمد">
             </div>
             <div class="form-group">
                 <label>كلمة المرور (الباسورد):</label>
-                <input type="password" id="regPass" required placeholder="اكتب كلمة سر قوية">
+                <input type="password" id="regPass" placeholder="اكتب كلمة سر قوية">
             </div>
             <div class="form-group">
                 <label>الفرقة الدراسية:</label>
-                <select id="regYear" required>
+                <select id="regYear">
                     <option value="الفرقة الأولى" selected>الفرقة الأولى</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>اختر رقم المدرج الخاص بك (إجباري):</label>
-                <select id="regHall" required>
+                <select id="regHall">
                     <option value="" disabled selected>-- اختر المدرج --</option>
                     <option value="1">مدرج (1)</option>
                     <option value="2">مدرج (2)</option>
@@ -151,23 +151,23 @@
                     <option value="6">مدرج (6)</option>
                 </select>
             </div>
-            <button type="submit" class="btn">إنشاء الحساب والدخول للمنصة</button>
+            <button type="button" class="btn" onclick="handleRegister()">إنشاء الحساب والدخول للمنصة</button>
             <div class="switch-auth" onclick="showLogin()">لديك حساب بالفعل؟ تسجيل الدخول</div>
-        </form>
+        </div>
 
-        <!-- نموذج تسجيل الدخول -->
-        <form id="loginForm" style="display:none;">
+        <!-- قسم تسجيل الدخول -->
+        <div id="loginBox" style="display:none;">
             <div class="form-group">
                 <label>الاسم المسجل:</label>
-                <input type="text" id="loginName" required placeholder="اكتب اسمك كما سجلته">
+                <input type="text" id="loginName" placeholder="اكتب اسمك كما سجلته">
             </div>
             <div class="form-group">
                 <label>كلمة المرور:</label>
-                <input type="password" id="loginPass" required placeholder="اكتب كلمة المرور">
+                <input type="password" id="loginPass" placeholder="اكتب كلمة المرور">
             </div>
-            <button type="submit" class="btn">دخول</button>
+            <button type="button" class="btn" onclick="handleLogin()">دخول</button>
             <div class="switch-auth" onclick="showRegister()">طالب جديد؟ إنشاء حساب الآن</div>
-        </form>
+        </div>
     </div>
 
     <!-- 2. الصفحة الرئيسية للمنصة -->
@@ -181,6 +181,6 @@
                         <span id="userBadge">الفرقة الأولى</span>
                     </div>
                 </div>
-                <button class="logout-btn" onclick="logout()">تسجيل خروج</button>
+                <button type="button" class="logout-btn" onclick="logout()">تسجيل خروج</button>
             </div>
             <div class="site-banner">
