@@ -22,8 +22,8 @@
         
         /* شاشة التسجيل والدخول */
         .auth-container {
-            max-width: 450px; margin: 30px auto; background: var(--card);
-            padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 450px; margin: 40px auto; background: var(--card);
+            padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
         }
         .auth-container h1 { color: var(--primary); font-size: 26px; margin-bottom: 5px; }
@@ -35,18 +35,16 @@
             font-size: 15px; outline: none; transition: 0.3s;
         }
         .form-group input:focus, .form-group select:focus { border-color: var(--secondary); }
-        .photo-upload {
-            border: 2px dashed var(--secondary); padding: 15px; border-radius: 12px;
-            text-align: center; cursor: pointer; background: #eff6ff; display: block;
-        }
-        .photo-preview { width: 85px; height: 85px; border-radius: 50%; object-fit: cover; margin: 10px auto 0; display: none; border: 3px solid var(--primary); }
         .btn {
             width: 100%; padding: 14px; background: var(--primary); color: white;
             border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
             cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
         .btn:hover { background: var(--secondary); }
-        .switch-auth { margin-top: 15px; font-size: 14px; color: var(--secondary); cursor: pointer; font-weight: 600; }
+        .switch-auth {
+            display: inline-block; margin-top: 15px; font-size: 14px; color: var(--secondary);
+            cursor: pointer; font-weight: 700; text-decoration: underline; padding: 5px;
+        }
 
         /* الهيدر الرئيسي */
         header {
@@ -55,8 +53,12 @@
             box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
         }
         .header-top { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: auto; }
-        .user-info { display: flex; align-items: center; gap: 15px; }
-        .user-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); background: white; }
+        .user-info { display: flex; align-items: center; gap: 12px; }
+        .user-badge-icon {
+            width: 50px; height: 50px; border-radius: 50%; background: var(--accent);
+            color: var(--primary); display: flex; align-items: center; justify-content: center;
+            font-size: 24px; font-weight: 800;
+        }
         .welcome-text h2 { font-size: 18px; }
         .welcome-text span { font-size: 13px; background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 20px; }
         .logout-btn { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 13px; }
@@ -149,16 +151,8 @@
                     <option value="6">مدرج (6)</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>الصورة الشخصية (إجباري للدخول):</label>
-                <label for="regPhoto" class="photo-upload">
-                    <span id="photoLabelText">📸 اضغط هنا لاختيار صورتك الشخصية</span>
-                    <input type="file" id="regPhoto" accept="image/*" style="display:none" onchange="previewImage(event)">
-                    <img id="photoPreview" class="photo-preview">
-                </label>
-            </div>
             <button type="submit" class="btn">إنشاء الحساب والدخول للمنصة</button>
-            <div class="switch-auth" onclick="toggleAuthMode()">لديك حساب بالفعل؟ تسجيل الدخول</div>
+            <div class="switch-auth" onclick="showLogin()">لديك حساب بالفعل؟ تسجيل الدخول</div>
         </form>
 
         <!-- نموذج تسجيل الدخول -->
@@ -172,4 +166,21 @@
                 <input type="password" id="loginPass" required placeholder="اكتب كلمة المرور">
             </div>
             <button type="submit" class="btn">دخول</button>
-            <div class="switch-auth" onclick="toggleAuthMode()">طالب جديد؟ إنشاء حساب الآن</div>
+            <div class="switch-auth" onclick="showRegister()">طالب جديد؟ إنشاء حساب الآن</div>
+        </form>
+    </div>
+
+    <!-- 2. الصفحة الرئيسية للمنصة -->
+    <div id="mainApp" style="display:none;">
+        <header>
+            <div class="header-top">
+                <div class="user-info">
+                    <div class="user-badge-icon" id="userInitial">🎓</div>
+                    <div class="welcome-text">
+                        <h2 id="welcomeMsg">مرحباً بك</h2>
+                        <span id="userBadge">الفرقة الأولى</span>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">تسجيل خروج</button>
+            </div>
+            <div class="site-banner">
