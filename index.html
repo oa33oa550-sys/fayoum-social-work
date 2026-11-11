@@ -14,56 +14,19 @@
             --bg: #f1f5f9;
             --card: #ffffff;
             --text: #1e293b;
-            --danger: #dc2626;
             --success: #16a34a;
         }
         * { box-sizing: border-box; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; }
         body { background-color: var(--bg); color: var(--text); padding-bottom: 50px; }
-        
-        /* شاشة التسجيل والدخول */
-        .auth-container {
-            max-width: 450px; margin: 40px auto; background: var(--card);
-            padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .auth-container h1 { color: var(--primary); font-size: 26px; margin-bottom: 5px; }
-        .auth-container p { color: #64748b; font-size: 14px; margin-bottom: 20px; }
-        .form-group { text-align: right; margin-bottom: 15px; }
-        .form-group label { display: block; font-weight: 700; margin-bottom: 5px; font-size: 14px; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px;
-            font-size: 15px; outline: none; transition: 0.3s;
-        }
-        .form-group input:focus, .form-group select:focus { border-color: var(--secondary); }
-        .btn {
-            width: 100%; padding: 14px; background: var(--primary); color: white;
-            border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
-            cursor: pointer; transition: 0.3s; margin-top: 10px;
-        }
-        .btn:hover { background: var(--secondary); }
-        .switch-auth {
-            display: inline-block; margin-top: 15px; font-size: 14px; color: var(--secondary);
-            cursor: pointer; font-weight: 700; text-decoration: underline; padding: 5px;
-        }
 
         /* الهيدر الرئيسي */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white; padding: 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+            color: white; padding: 25px 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2); text-align: center;
         }
-        .header-top { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: auto; }
-        .user-info { display: flex; align-items: center; gap: 12px; }
-        .user-badge-icon {
-            width: 50px; height: 50px; border-radius: 50%; background: var(--accent);
-            color: var(--primary); display: flex; align-items: center; justify-content: center;
-            font-size: 24px; font-weight: 800;
-        }
-        .welcome-text h2 { font-size: 18px; }
-        .welcome-text span { font-size: 13px; background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 20px; }
-        .logout-btn { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 15px; border-radius: 10px; cursor: pointer; font-size: 13px; }
-        .site-banner { text-align: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.15); }
-        .site-banner h1 { font-size: 22px; color: var(--accent); }
+        header h1 { font-size: 26px; color: var(--accent); margin-bottom: 5px; }
+        header p { font-size: 15px; opacity: 0.95; }
 
         /* الأزرار العلوية السريعة */
         .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
@@ -80,18 +43,15 @@
         .halls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
         .hall-card {
             background: var(--card); padding: 25px 20px; border-radius: 18px; text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06); cursor: pointer; transition: 0.3s; position: relative;
-            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); cursor: pointer; transition: 0.3s;
+            border: 2px solid #e2e8f0;
         }
-        .hall-card.unlocked { border-color: var(--success); }
-        .hall-card.unlocked:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(22, 163, 74, 0.15); }
-        .hall-card.locked { opacity: 0.65; background: #e2e8f0; cursor: not-allowed; }
+        .hall-card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15); }
         .hall-icon { font-size: 40px; margin-bottom: 10px; }
         .status-badge {
-            display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-top: 10px;
+            display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-top: 10px;
+            background: #dcfce7; color: var(--success);
         }
-        .badge-open { background: #dcfce7; color: var(--success); }
-        .badge-lock { background: #fee2e2; color: var(--danger); }
 
         /* الصفحات الداخلية */
         .sub-page { display: none; background: var(--card); padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -115,72 +75,89 @@
 
         /* تفاصيل المادة والأبحاث */
         .alert-box { background: #fef3c7; border-right: 5px solid var(--accent); padding: 15px; border-radius: 10px; margin: 15px 0; line-height: 1.8; }
-        .admin-trigger { text-align: center; margin-top: 40px; font-size: 12px; color: #94a3b8; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <!-- 1. شاشة تسجيل الدخول وإنشاء الحساب -->
-    <div id="authScreen" class="auth-container">
+    <header>
         <h1>أخصائي فرقة أولى 🎓</h1>
-        <p>الموقع الخاص بطلاب كلية الخدمة الاجتماعية - جامعة الفيوم</p>
+        <p>الموقع الخاص بطلاب كلية الخدمة الاجتماعية - جامعة الفيوم (الفرقة الأولى)</p>
+    </header>
 
-        <!-- قسم إنشاء حساب جديد -->
-        <div id="registerBox">
-            <div class="form-group">
-                <label>الاسم بالكامل (ثلاثي أو رباعي):</label>
-                <input type="text" id="regName" placeholder="مثال: عمر أحمد محمد">
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور (الباسورد):</label>
-                <input type="password" id="regPass" placeholder="اكتب كلمة سر قوية">
-            </div>
-            <div class="form-group">
-                <label>الفرقة الدراسية:</label>
-                <select id="regYear">
-                    <option value="الفرقة الأولى" selected>الفرقة الأولى</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>اختر رقم المدرج الخاص بك (إجباري):</label>
-                <select id="regHall">
-                    <option value="" disabled selected>-- اختر المدرج --</option>
-                    <option value="1">مدرج (1)</option>
-                    <option value="2">مدرج (2)</option>
-                    <option value="3">مدرج (3)</option>
-                    <option value="6">مدرج (6)</option>
-                </select>
-            </div>
-            <button type="button" class="btn" onclick="handleRegister()">إنشاء الحساب والدخول للمنصة</button>
-            <div class="switch-auth" onclick="showLogin()">لديك حساب بالفعل؟ تسجيل الدخول</div>
+    <div class="container">
+        <div class="quick-nav">
+            <div class="nav-pill active" onclick="showSection('homeSection', this)">🏠 المدرجات والمواد</div>
+            <div class="nav-pill" onclick="showSection('lecturesSection', this)">📅 جدول المحاضرات</div>
+            <div class="nav-pill" onclick="showSection('examsSection', this)">📝 جدول الفاينل (نصف السنة)</div>
+            <div class="nav-pill" onclick="showSection('researchSection', this)">📚 الأبحاث والملازم</div>
         </div>
 
-        <!-- قسم تسجيل الدخول -->
-        <div id="loginBox" style="display:none;">
-            <div class="form-group">
-                <label>الاسم المسجل:</label>
-                <input type="text" id="loginName" placeholder="اكتب اسمك كما سجلته">
+        <div id="homeSection" class="app-section">
+            <div class="section-title">🏛️ اختر مدرجك الدراسي لعرض المواد والدكاترة:</div>
+            <div class="halls-grid" id="hallsGrid"></div>
+        </div>
+
+        <div id="subjectsSection" class="sub-page">
+            <button type="button" class="back-btn" onclick="showSection('homeSection')">🔙 العودة للمدرجات</button>
+            <h2 class="section-title" id="hallTitle">مواد المدرج</h2>
+            <div class="subjects-grid" id="subjectsGrid"></div>
+        </div>
+
+        <div id="subjectDetailSection" class="sub-page">
+            <button type="button" class="back-btn" onclick="backToSubjects()">🔙 العودة لقائمة المواد</button>
+            <h2 id="detailSubName" style="color:var(--primary); margin-bottom:5px;"></h2>
+            <h4 id="detailDocName" style="color:var(--secondary); margin-bottom:15px;"></h4>
+            <div class="alert-box" id="detailContent"></div>
+        </div>
+
+        <div id="lecturesSection" class="sub-page">
+            <h2 class="section-title">📅 جدول المحاضرات الأسبوعي (الأحد والثلاثاء)</h2>
+            <div id="lecturesContent"></div>
+        </div>
+
+        <div id="examsSection" class="sub-page">
+            <h2 class="section-title">📝 جدول امتحانات الفصل الدراسي الأول (الفرقة الأولى)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اليوم والتاريخ</th>
+                        <th>المادة الدراسية</th>
+                        <th>الوقت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>الخميس 2026/12/17</td><td>علم اجتماع الخدمة الاجتماعية</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الإثنين 2026/12/21</td><td>مدخل في تنمية المجتمع</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الخميس 2026/12/24</td><td>الرعاية الاجتماعية</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الإثنين 2026/12/28</td><td>علم النفس العام</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الخميس 2026/12/31</td><td>أنثروبولوجيا اجتماعية</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الإثنين 2027/1/4</td><td>التشريعات الاجتماعية في مجالات الخدمة الاجتماعية</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الإثنين 2027/1/11</td><td>نصوص باللغة الإنجليزية في الخدمة الاجتماعية</td><td>9:30 ص إلى 11:30 ص</td></tr>
+                    <tr><td>الخميس 2027/1/14</td><td>قضايا مجتمعية</td><td>9:30 ص إلى 10:30 ص</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="researchSection" class="sub-page">
+            <h2 class="section-title">📚 تنبيهات الأبحاث والميدتيرم والملازم</h2>
+            <div class="alert-box">
+                <h3>⚠️ مواعيد وتفاصيل التسليم:</h3><br>
+                <strong>1. د. عفاف عبد الفادي (علم النفس):</strong> ميدتيرم + آخر ميعاد تسليم الأبحاث كلها (3 أبحاث).<br><br>
+                <strong>2. د. ليندا الجارحي (الرعاية الاجتماعية):</strong> آخر ميعاد تسليم 3 أبحاث + الوصل من مكتبة دار التقوى.<br>
+                - البحث الأول: المنظمات المقدمة لخدمات الرعاية الاجتماعية الدولية (10 أوراق).<br>
+                - البحث الثاني: مظاهر الرعاية الاجتماعية في الأديان السماوية (7 أوراق).<br>
+                - البحث الثالث: دور الخدمة الاجتماعية في تحقيق الرعاية الاجتماعية (10 أوراق).<br>
+                *(كل بحث في فايل، وتوضع الأبحاث الثلاثة في دوسيه واحد).*<br><br>
+                <strong>3. د. هاشم مرعي (تنمية المجتمع):</strong> آخر ميعاد تسليم بحث واحد فقط (كمبيوتر أو باليد) من 10 إلى 15 صفحة + ملزمة الدكتور من مكتبة الزرقاء + الوصل + تدبيس صورة البطاقة في آخر البحث.<br>
+                - موضوع البحث: تحدث عن بعض المشكلات في الحيز السكاني لك وأوجد لها خطة استراتيجية (فهرس، خاتمة، مراجع).<br><br>
+                <strong>4. د. أماني حامد (أنثروبولوجيا):</strong> بحث واحد فقط (كمبيوتر أو يدوي) من 10 إلى 15 ورقة (غير طالبة ملازم).<br>
+                - موضوع البحث: الأنثروبولوجيا الرقمية.<br><br>
+                <strong>5. د. ضحى عيد ود. سهام بسيوني (قضايا مجتمعية):</strong> امتحان ميدتيرم + وصل الملزمة + تسليم تكليف واحد فقط (20 ورقة يدوي فقط) من مكتبة لميس.<br><br>
+                <strong>6. د. مسعود علي (التشريعات الاجتماعية):</strong> آخر ميعاد تسليم بحث واحد فقط (كمبيوتر فقط) من مكتبة لميس + حجز الملزمة + الوصل. (اختر موضوعاً واحداً من الـ 10 موضوعات المقررة: ماهية التشريعات، حقوق الطفل في التشريع المصري، حقوق الطفل في الديانات السماوية، تشريعات الأحوال الشخصية، العمل الفريقي في مكاتب تسوية النزاعات، تشريعات رعاية المسنين، الأطفال بلا مأوى، الأحداث المنحرفين، عمالة الأطفال، التشريعات في المجال العمالي).<br><br>
+                <strong>7. د. باسم (نصوص أجنبية):</strong> ميدتيرم + حجز ملزمة دار التقوى.<br><br>
+                <strong>8. د. محمد إبراهيم مبروك (علم اجتماع الخدمة):</strong> ميدتيرم + حجز ملزمة من دار التقوى + الوصل + 3 أبحاث.
             </div>
-            <div class="form-group">
-                <label>كلمة المرور:</label>
-                <input type="password" id="loginPass" placeholder="اكتب كلمة المرور">
-            </div>
-            <button type="button" class="btn" onclick="handleLogin()">دخول</button>
-            <div class="switch-auth" onclick="showRegister()">طالب جديد؟ إنشاء حساب الآن</div>
         </div>
     </div>
 
-    <!-- 2. الصفحة الرئيسية للمنصة -->
-    <div id="mainApp" style="display:none;">
-        <header>
-            <div class="header-top">
-                <div class="user-info">
-                    <div class="user-badge-icon" id="userInitial">🎓</div>
-                    <div class="welcome-text">
-                        <h2 id="welcomeMsg">مرحباً بك</h2>
-                        <span id="userBadge">الفرقة الأولى</span>
-                    </div>
-                </div>
-                <button type="button" class="logout-btn" onclick="logout()">تسجيل خروج</button>
-            </div>
-            <div class="site-banner">
+    <script>
